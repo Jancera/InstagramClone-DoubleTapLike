@@ -7,9 +7,16 @@ import ShareIconStatic from "../../assets/Icons/ShareIconStatic";
 import CarrouselIndicatorAnimated from "./CarrouselIndicatorAnimated";
 import LikesAndComments from "./LikesAndComments";
 
+
+  interface PostFooterProps {
+  element:any,
+  quantity:any,
+  activeImage:any
+}
+
 const { width } = Dimensions.get("window");
 
-const PostFooter = ({ element, quantity, activeImage }) => {
+const PostFooter = ({ element, quantity, activeImage }:PostFooterProps) => {
   return (
     <>
       <View style={styles.containerMain}>

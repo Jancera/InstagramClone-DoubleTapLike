@@ -1,17 +1,23 @@
 import React from "react";
-import { MaterialCommunityIcons } from "react-native-vector-icons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-const ProfileIconNavBar = ({ focused }) => {
+interface ProfileIconNavBarProps {
+  focused: boolean;
+}
+
+const ProfileIconNavBar = ({
+  focused,
+}: ProfileIconNavBarProps) => {
   return (
     <>
       {focused ? (
-        <MaterialCommunityIcons
+        <Icon
           name="account-circle"
           size={30}
           color="white"
         />
       ) : (
-        <MaterialCommunityIcons
+        <Icon
           name="account-circle-outline"
           size={30}
           color="white"

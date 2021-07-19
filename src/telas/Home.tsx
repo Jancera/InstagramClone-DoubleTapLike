@@ -49,7 +49,7 @@ const Home = () => {
     </>
   );
 
-  const _renderItem = ({ item }) => {
+  const _renderItem = ({ item }: any) => {
     if (item.carrousel) {
       return <PostCarrousel element={item} />;
     } else {

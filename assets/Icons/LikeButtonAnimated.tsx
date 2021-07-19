@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
-import { MaterialCommunityIcons } from "react-native-vector-icons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Animated from "react-native-reanimated";
 import iconAnimation from "../../src/components/iconAnimation";
 
@@ -15,14 +15,14 @@ const LikeButtonAnimated = () => {
       onPress={() => setTrigger(!trigger)}
     >
       <Animated.View style={IconRegular}>
-        <MaterialCommunityIcons
+        <Icon
           name="heart-outline"
           size={30}
           color="white"
         />
       </Animated.View>
       <Animated.View style={[IconFilled, styles.absolute]}>
-        <MaterialCommunityIcons
+        <Icon
           name="heart"
           size={30}
           color="rgb(237, 73, 86)"

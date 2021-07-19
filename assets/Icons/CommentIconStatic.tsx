@@ -10,7 +10,6 @@ const CommentIconStatic = () => {
         width={25}
         height={25}
         viewBox="0 0 122.97 122.88"
-        xmlns="http://www.w3.org/2000/svg"
         id="Layer_1"
         data-name="Layer 1"
       >

@@ -1,7 +1,13 @@
 import React from "react";
 import Svg, { Path } from "react-native-svg";
 
-const ShopIconNavBar = ({ focused }) => {
+interface ShopIconNavBarProps {
+  focused: boolean;
+}
+
+const ShopIconNavBar = ({
+  focused,
+}: ShopIconNavBarProps) => {
   return (
     <>
       {focused ? (

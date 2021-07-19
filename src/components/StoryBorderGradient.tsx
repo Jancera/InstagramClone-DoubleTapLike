@@ -6,7 +6,17 @@ import Svg, {
   Defs,
 } from "react-native-svg";
 
-const StoryBorderGradient = ({ width, height, stroke }) => {
+interface StoryGradientProps {
+  width: number;
+  height: number;
+  stroke: number;
+}
+
+const StoryBorderGradient = ({
+  width,
+  height,
+  stroke,
+}: StoryGradientProps) => {
   return (
     <Svg
       width={width}

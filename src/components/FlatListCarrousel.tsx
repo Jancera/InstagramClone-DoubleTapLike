@@ -1,7 +1,12 @@
 import React, { useCallback } from "react";
 import { FlatList, Dimensions, Image } from "react-native";
 
-const FlatListCarrousel = ({ data, activeImage }) => {
+interface FlatListCarrouselProps {
+  data:any,
+  activeImage:any
+}
+
+const FlatListCarrousel = ({ data, activeImage }:FlatListCarrouselProps) => {
   const { width } = Dimensions.get("window");
 
   const _onViewableItemsChanged = useCallback(
@@ -18,7 +23,7 @@ const FlatListCarrousel = ({ data, activeImage }) => {
     viewAreaCoveragePercentThreshold: 50,
   };
 
-  const _renderItem = ({ item }) => {
+  const _renderItem = ({ item }:any) => {
     return (
       <Image
         style={{

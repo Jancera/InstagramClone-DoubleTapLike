@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import StoryBorderGradient from "./StoryBorderGradient";
 
-const Story = ({ data }) => {
+const Story = ({ data }: any) => {
   const [stories, setStories] = useState(data);
 
   const _loadData = () => {
@@ -18,7 +18,7 @@ const Story = ({ data }) => {
     );
   };
 
-  const _renderItem = ({ item }) => {
+  const _renderItem = ({ item }: any) => {
     return (
       <View style={styles.align}>
         <View style={styles.iconStoryContainer}>

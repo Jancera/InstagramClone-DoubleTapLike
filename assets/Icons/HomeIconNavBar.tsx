@@ -1,7 +1,13 @@
 import React from "react";
 import Svg, { Path } from "react-native-svg";
 
-const HomeIconNavBar = ({ focused }) => {
+interface HomeIconNavBarProps {
+  focused: boolean;
+}
+
+const HomeIconNavBar = ({
+  focused,
+}: HomeIconNavBarProps) => {
   return (
     <>
       {focused ? (
@@ -12,10 +18,7 @@ const HomeIconNavBar = ({ focused }) => {
           fill="white"
           fillRule="evenodd"
         >
-          <Path
-            class="cls-1"
-            d="M61.414,431.141V250L250,70.72,440.447,250V431.141S440.154,450.993,422,450.993H318s-17.752-1.241-17.752-19.852V326.3S299.007,288.159,250,288s-49.007,38.3-49.007,38.3V431.141S200.228,450.993,182,450.993H79S61.414,451.613,61.414,431.141Z"
-          />
+          <Path d="M61.414,431.141V250L250,70.72,440.447,250V431.141S440.154,450.993,422,450.993H318s-17.752-1.241-17.752-19.852V326.3S299.007,288.159,250,288s-49.007,38.3-49.007,38.3V431.141S200.228,450.993,182,450.993H79S61.414,451.613,61.414,431.141Z" />
         </Svg>
       ) : (
         <Svg

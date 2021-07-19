@@ -8,7 +8,7 @@ import {
 import { MaterialCommunityIcons } from "react-native-vector-icons";
 import StoryBorderGradient from "./StoryBorderGradient";
 
-const PostHeader = ({ element }) => {
+const PostHeader = ({ element }: any) => {
   return (
     <View style={styles.containerHeader}>
       <View style={styles.imageNameContainer}>

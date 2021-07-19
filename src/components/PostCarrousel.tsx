@@ -5,7 +5,7 @@ import FlatListCarrousel from "./FlatListCarrousel";
 import PostHeader from "./PostHeader";
 import PostFooter from "./PostFooter";
 
-const PostCarrousel = ({ element }) => {
+const PostCarrousel = ({ element }:any) => {
   const activeImage = useSharedValue(0);
   return (
     <>

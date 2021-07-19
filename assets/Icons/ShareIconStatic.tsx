@@ -10,7 +10,6 @@ const ShareIconStatic = () => {
         width={25}
         height={25}
         viewBox="0 0 122.88 108.3"
-        xmlns="http://www.w3.org/2000/svg"
         id="Layer_1"
       >
         <Path

@@ -8,7 +8,7 @@ import {
 import { Ionicons } from "react-native-vector-icons";
 import { dataAPI } from "../data";
 
-const LikesAndComments = ({ element }) => {
+const LikesAndComments = ({ element }:any) => {
   const { userLoggedInfo } = dataAPI;
   return (
     <>

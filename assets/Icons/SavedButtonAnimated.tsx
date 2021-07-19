@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
-import { FontAwesome } from "react-native-vector-icons";
+import Icon from "react-native-vector-icons/FontAwesome";
 import Animated from "react-native-reanimated";
 import iconAnimation from "../../src/components/iconAnimation";
 
@@ -14,18 +14,10 @@ const SavedButton = () => {
       onPress={() => setTrigger(!trigger)}
     >
       <Animated.View style={IconRegular}>
-        <FontAwesome
-          name="bookmark-o"
-          size={30}
-          color="white"
-        />
+        <Icon name="bookmark-o" size={30} color="white" />
       </Animated.View>
       <Animated.View style={[IconFilled, styles.absolute]}>
-        <FontAwesome
-          name="bookmark"
-          size={30}
-          color="white"
-        />
+        <Icon name="bookmark" size={30} color="white" />
       </Animated.View>
     </TouchableOpacity>
   );

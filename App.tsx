@@ -12,8 +12,16 @@ import ReelsIconNavBar from "./assets/Icons/ReelsIconNavBar";
 import ShopIconNavBar from "./assets/Icons/ShopIconNavBar";
 import ProfileIconNavBar from "./assets/Icons/ProfileIconNavBar";
 
+type Routes = {
+  Home: undefined;
+  Search: undefined;
+  Reels: undefined;
+  Shop: undefined;
+  Profile: undefined;
+};
+
 const App = () => {
-  const Bottom = createBottomTabNavigator();
+  const Bottom = createBottomTabNavigator<Routes>();
 
   return (
     <NavigationContainer>

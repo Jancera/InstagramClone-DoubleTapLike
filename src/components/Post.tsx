@@ -3,7 +3,7 @@ import { Image, Dimensions } from "react-native";
 import PostHeader from "./PostHeader";
 import PostFooter from "./PostFooter";
 
-const Post = ({ element }) => {
+const Post = ({ element }:any) => {
   const { width } = Dimensions.get("window");
   return (
     <>
