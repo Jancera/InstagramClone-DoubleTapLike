@@ -1,20 +1,16 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import {
+import Animated, {
   withTiming,
   useDerivedValue,
 } from "react-native-reanimated";
 import Circle from "./Circle";
-
-interface CarrouselIndicatorProps {
-  quantity:any,
-  activeImage:any
-}
+import { CarrouselIndicatorProps } from "../interfaces";
 
 const CarrouselIndicatorAnimated = ({
   quantity,
   activeImage,
-}:CarrouselIndicatorProps) => {
+}: CarrouselIndicatorProps) => {
   const indicators = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const animation = useDerivedValue(() => {
     return withTiming(activeImage.value);

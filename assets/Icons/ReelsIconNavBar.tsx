@@ -1,11 +1,8 @@
 import React from "react";
 import Svg, { Path } from "react-native-svg";
+import { ReelsIconNavBarProps } from "../../src/interfaces";
 
 // Thanks https://icons8.com.br/ for the SVG
-
-interface ReelsIconNavBarProps {
-  focused: boolean;
-}
 
 const ReelsIconNavBar = ({
   focused,

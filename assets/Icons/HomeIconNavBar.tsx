@@ -1,9 +1,6 @@
 import React from "react";
 import Svg, { Path } from "react-native-svg";
-
-interface HomeIconNavBarProps {
-  focused: boolean;
-}
+import { HomeIconNavBarProps } from "../../src/interfaces";
 
 const HomeIconNavBar = ({
   focused,

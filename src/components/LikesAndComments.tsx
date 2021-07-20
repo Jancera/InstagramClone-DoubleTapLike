@@ -5,18 +5,18 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import { Ionicons } from "react-native-vector-icons";
+import Item from "react-native-vector-icons/Ionicons";
 import { dataAPI } from "../data";
 
-const LikesAndComments = ({ element }:any) => {
+const LikesAndComments = ({ item }: any) => {
   const { userLoggedInfo } = dataAPI;
   return (
     <>
-      {element.commonLike !== undefined ? (
+      {item.commonLike !== undefined ? (
         <View style={styles.container}>
           <View style={styles.likes}>
             <Image
-              source={element.commonLike.profilePhoto}
+              source={item.commonLike.profilePhoto}
               style={styles.image}
             />
             <Text style={styles.text}>
@@ -24,25 +24,25 @@ const LikesAndComments = ({ element }:any) => {
               Liked by{" "}
             </Text>
             <Text style={styles.textBold}>
-              {element.commonLike.name}
+              {item.commonLike.name}
             </Text>
             <Text style={styles.text}> and </Text>
             <Text style={styles.textBold}>
-              {element.likes} others
+              {item.likes} others
             </Text>
           </View>
           <View style={styles.userDescription}>
             <Text style={styles.textBold}>
-              {element.username}
+              {item.username}
             </Text>
             <Text style={styles.text}>
               {"  "}
-              {element.description}
+              {item.description}
             </Text>
           </View>
-          {element.comments === 0 ? null : (
+          {item.comments === 0 ? null : (
             <Text style={styles.textGrey}>
-              View all {element.comments} comments
+              View all {item.comments} comments
             </Text>
           )}
           <View style={styles.addComment}>
@@ -55,33 +55,33 @@ const LikesAndComments = ({ element }:any) => {
                 {"  "}Add a comment...
               </Text>
             </View>
-            <Ionicons
+            <Item
               name="add-circle-outline"
               size={15}
               color="grey"
             />
           </View>
-          <Text style={styles.time}>{element.time}</Text>
+          <Text style={styles.time}>{item.time}</Text>
         </View>
       ) : (
         <View style={styles.container}>
           <View style={styles.likes}>
             <Text style={styles.textBold}>
-              {element.likes} likes
+              {item.likes} likes
             </Text>
           </View>
           <View style={styles.userDescription}>
             <Text style={styles.textBold}>
-              {element.username}
+              {item.username}
             </Text>
             <Text style={styles.text}>
               {"  "}
-              {element.description}
+              {item.description}
             </Text>
           </View>
-          {element.comments === 0 ? null : (
+          {item.comments === 0 ? null : (
             <Text style={styles.textGrey}>
-              View all {element.comments} comments
+              View all {item.comments} comments
             </Text>
           )}
           <View style={styles.addComment}>
@@ -94,13 +94,13 @@ const LikesAndComments = ({ element }:any) => {
                 {"  "}Add a comment...
               </Text>
             </View>
-            <Ionicons
+            <Item
               name="add-circle-outline"
               size={15}
               color="grey"
             />
           </View>
-          <Text style={styles.time}>{element.time}</Text>
+          <Text style={styles.time}>{item.time}</Text>
         </View>
       )}
     </>

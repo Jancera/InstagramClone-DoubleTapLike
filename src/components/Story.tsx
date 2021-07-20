@@ -7,8 +7,9 @@ import {
   Text,
 } from "react-native";
 import StoryBorderGradient from "./StoryBorderGradient";
+import { StoryProps } from "../interfaces";
 
-const Story = ({ data }: any) => {
+const Story = ({ data }: StoryProps) => {
   const [stories, setStories] = useState(data);
 
   const _loadData = () => {

@@ -1,9 +1,6 @@
 import React from "react";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-
-interface ProfileIconNavBarProps {
-  focused: boolean;
-}
+import { ProfileIconNavBarProps } from "../../src/interfaces";
 
 const ProfileIconNavBar = ({
   focused,

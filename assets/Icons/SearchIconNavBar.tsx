@@ -1,11 +1,8 @@
 import React from "react";
 import Svg, { Path } from "react-native-svg";
+import { SearchIconNavBarProps } from "../../src/interfaces";
 
 // Thanks https://icons8.com.br/ for the SVG
-
-interface SearchIconNavBarProps {
-  focused: boolean;
-}
 
 const SearchIconNavBar = ({
   focused,

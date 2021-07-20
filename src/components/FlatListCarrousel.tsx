@@ -1,12 +1,16 @@
 import React, { useCallback } from "react";
-import { FlatList, Dimensions, Image } from "react-native";
+import {
+  FlatList,
+  Dimensions,
+  Image,
+  ListRenderItemInfo,
+} from "react-native";
+import { FlatListCarrouselProps } from "../interfaces";
 
-interface FlatListCarrouselProps {
-  data:any,
-  activeImage:any
-}
-
-const FlatListCarrousel = ({ data, activeImage }:FlatListCarrouselProps) => {
+const FlatListCarrousel = ({
+  data,
+  activeImage,
+}: FlatListCarrouselProps) => {
   const { width } = Dimensions.get("window");
 
   const _onViewableItemsChanged = useCallback(
@@ -23,7 +27,9 @@ const FlatListCarrousel = ({ data, activeImage }:FlatListCarrouselProps) => {
     viewAreaCoveragePercentThreshold: 50,
   };
 
-  const _renderItem = ({ item }:any) => {
+  const _renderItem = ({
+    item,
+  }: ListRenderItemInfo<{ uri: string } | number>) => {
     return (
       <Image
         style={{
@@ -39,7 +45,11 @@ const FlatListCarrousel = ({ data, activeImage }:FlatListCarrouselProps) => {
   return (
     <FlatList
       data={data}
-      keyExtractor={(item) => String(item.uri)}
+      keyExtractor={(item) =>
+        typeof item === "number"
+          ? String(item)
+          : String(item.uri)
+      }
       horizontal
       showsHorizontalScrollIndicator={false}
       snapToInterval={width}

@@ -4,14 +4,13 @@ import Animated, {
   interpolate,
   useAnimatedStyle,
 } from "react-native-reanimated";
+import { CircleProps } from "../interfaces";
 
-interface CircleProps {
-  animation:any,
-  index:any,
-  activeImage:any
-}
-
-const Circle = ({ animation, index, activeImage }:CircleProps) => {
+const Circle = ({
+  animation,
+  index,
+  activeImage,
+}: CircleProps) => {
   const grey = "rgb(168, 168, 168)";
   const blue = "rgb(0, 149, 246)";
   const style = useAnimatedStyle(() => {

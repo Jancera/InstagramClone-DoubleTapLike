@@ -3,20 +3,20 @@ import { Image, Dimensions } from "react-native";
 import PostHeader from "./PostHeader";
 import PostFooter from "./PostFooter";
 
-const Post = ({ element }:any) => {
+const Post = ({ item }) => {
   const { width } = Dimensions.get("window");
   return (
     <>
-      <PostHeader {...{ element }} />
+      <PostHeader {...{ item }} />
       <Image
         style={{
           width,
           height: width,
         }}
-        source={element.url}
+        source={item.url}
         resizeMode="cover"
       />
-      <PostFooter {...{ element }} />
+      <PostFooter {...{ item }} />
     </>
   );
 };

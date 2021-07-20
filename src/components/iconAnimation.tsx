@@ -4,7 +4,7 @@ import {
   withTiming,
 } from "react-native-reanimated";
 
-const iconAnimation = (trigger:any) => {
+const iconAnimation = (trigger: boolean) => {
   const IconFilled = useAnimatedStyle(() => {
     return {
       transform: [

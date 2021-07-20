@@ -5,12 +5,7 @@ import Svg, {
   Circle,
   Defs,
 } from "react-native-svg";
-
-interface StoryGradientProps {
-  width: number;
-  height: number;
-  stroke: number;
-}
+import { StoryGradientProps } from "../interfaces";
 
 const StoryBorderGradient = ({
   width,

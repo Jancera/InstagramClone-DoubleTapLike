@@ -5,10 +5,10 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import { MaterialCommunityIcons } from "react-native-vector-icons";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import StoryBorderGradient from "./StoryBorderGradient";
 
-const PostHeader = ({ element }: any) => {
+const PostHeader = ({ item }) => {
   return (
     <View style={styles.containerHeader}>
       <View style={styles.imageNameContainer}>
@@ -20,21 +20,21 @@ const PostHeader = ({ element }: any) => {
           />
           <Image
             style={styles.profileImage}
-            source={element.user_profile_photo}
+            source={item.user_profile_photo}
           />
         </View>
         <View style={styles.nameLocation}>
           <Text style={styles.profileText}>
-            {element.username}
+            {item.username}
           </Text>
-          {element.location !== undefined ? (
+          {item.location !== undefined ? (
             <Text style={styles.locationText}>
-              {element.location}
+              {item.location}
             </Text>
           ) : null}
         </View>
       </View>
-      <MaterialCommunityIcons
+      <Icon
         name="dots-horizontal"
         size={30}
         color="white"

@@ -6,6 +6,7 @@ import {
   FlatList,
   SafeAreaView,
   ActivityIndicator,
+  ListRenderItemInfo,
 } from "react-native";
 import Story from "../components/Story";
 import MessengerIconStatic from "../../assets/Icons/MessengerIconStatic";
@@ -14,6 +15,10 @@ import NewPostIcon from "../../assets/Icons/NewPostIcon";
 import LikeIconStatic from "../../assets/Icons/LikeIconStatic";
 import Post from "../components/Post";
 import PostCarrousel from "../components/PostCarrousel";
+import {
+  PostCarrouselProps,
+  PostProps,
+} from "../interfaces";
 
 import { dataAPI } from "../data";
 
@@ -49,11 +54,15 @@ const Home = () => {
     </>
   );
 
-  const _renderItem = ({ item }: any) => {
+  const _renderItem = ({
+    item,
+  }: ListRenderItemInfo<
+    PostCarrouselProps | PostProps
+  >) => {
     if (item.carrousel) {
-      return <PostCarrousel element={item} />;
+      return <PostCarrousel {...{ item }} />;
     } else {
-      return <Post element={item} />;
+      return <Post {...{ item }} />;
     }
   };
   return (
