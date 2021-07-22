@@ -1,10 +1,5 @@
 import React, { useCallback } from "react";
-import {
-  FlatList,
-  Dimensions,
-  Image,
-  ImageSourcePropType,
-} from "react-native";
+import { FlatList, Dimensions, Image } from "react-native";
 import { FlatListCarrouselProps } from "../interfaces";
 
 const FlatListCarrousel = ({
@@ -30,7 +25,7 @@ const FlatListCarrousel = ({
   const _renderItem = ({
     item,
   }: {
-    item: ImageSourcePropType | { uri: string };
+    item: { uri: string } | number;
   }) => {
     return (
       <Image

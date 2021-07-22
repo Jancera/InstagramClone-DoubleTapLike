@@ -16,7 +16,10 @@ import Post from "../components/Post";
 import PostCarrousel from "../components/PostCarrousel";
 
 import { dataAPI } from "../data";
-import { ItemModel, RenderItemProps } from "../interfaces";
+import {
+  ItemModel,
+  ItemToRenderProps,
+} from "../interfaces";
 
 const Home = () => {
   const [posts, setPosts] = useState<ItemModel[]>(
@@ -52,7 +55,7 @@ const Home = () => {
     </>
   );
 
-  const _renderItem = ({ item }: RenderItemProps) => {
+  const _renderItem = ({ item }: ItemToRenderProps) => {
     if (item.carrousel) {
       return <PostCarrousel {...{ item }} />;
     } else {

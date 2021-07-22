@@ -7,8 +7,9 @@ import {
 } from "react-native";
 import Item from "react-native-vector-icons/Ionicons";
 import { dataAPI } from "../data";
+import { ItemToRenderProps } from "../interfaces";
 
-const LikesAndComments = ({ item }) => {
+const LikesAndComments = ({ item }: ItemToRenderProps) => {
   const { userLoggedInfo } = dataAPI;
   return (
     <>

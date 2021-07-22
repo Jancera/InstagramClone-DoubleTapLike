@@ -1,19 +1,6 @@
 import { ImageSourcePropType } from "react-native";
 import Animated from "react-native-reanimated";
 
-export interface DataProps {
-  userLoggedInfo: {
-    name: string;
-    profile_image: ImageSourcePropType;
-  };
-  stories: StoryModel[];
-  posts: ItemModel[];
-}
-
-export interface RenderItemProps {
-  item: ItemModel;
-}
-
 export interface ItemModel {
   username: string;
   id: number;
@@ -25,7 +12,7 @@ export interface ItemModel {
   commonLike:
     | {
         name: string;
-        profilePhoto: { uri: string } | string | number;
+        profilePhoto: ImageSourcePropType;
       }
     | undefined;
   description: string;
@@ -33,32 +20,37 @@ export interface ItemModel {
   time: string;
 }
 
+export interface ItemToRenderProps {
+  item: ItemModel;
+}
+
 export interface PostProps {
-  username: string;
-  id: number;
-  url: { uri: string } | number;
-  user_profile_photo: ImageSourcePropType;
-  carrousel: boolean;
-  location: string;
-  likes: number;
-  commonLike: {
-    name: string;
-    profilePhoto: { uri: string } | string | number;
-  };
-  description: string;
-  comments: number;
-  time: string;
+  item: ItemModel;
+}
+
+export interface PostCarrouselProps {
+  item: ItemModel;
 }
 
 export interface PostFooterProps {
-  item: any;
-  quantity?: number;
-  activeImage?: Animated.SharedValue<number>;
+  item: ItemModel;
+}
+
+export interface PostFooterCarrouselProps {
+  item: ItemModel;
+  quantity: number;
+  activeImage: Animated.SharedValue<number>;
+}
+
+export interface FlatListCarrouselProps {
+  data: ({ uri: string } | number)[];
+  activeImage: Animated.SharedValue<number>;
 }
 
 export interface StoryProps {
   data: StoryModel[];
 }
+
 export interface RenderStoryProps {
   item: StoryModel;
 }
@@ -67,11 +59,6 @@ export interface StoryModel {
   name: string;
   id: number;
   profile_image: ImageSourcePropType;
-}
-
-export interface FlatListCarrouselProps {
-  data: ({ uri: string } | number)[];
-  activeImage: Animated.SharedValue<number>;
 }
 
 export interface HomeIconNavBarProps {

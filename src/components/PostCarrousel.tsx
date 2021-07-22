@@ -2,10 +2,10 @@ import React from "react";
 import { useSharedValue } from "react-native-reanimated";
 import FlatListCarrousel from "./FlatListCarrousel";
 import PostHeader from "./PostHeader";
-import PostFooter from "./PostFooter";
-import { RenderItemProps } from "../interfaces";
+import { PostCarrouselProps } from "../interfaces";
+import PostFooterCarrousel from "./PostFooterCarrousel";
 
-const PostCarrousel = ({ item }: RenderItemProps) => {
+const PostCarrousel = ({ item }: PostCarrouselProps) => {
   const activeImage = useSharedValue(0);
   return (
     <>
@@ -14,7 +14,7 @@ const PostCarrousel = ({ item }: RenderItemProps) => {
         data={item.url}
         {...{ activeImage }}
       />
-      <PostFooter
+      <PostFooterCarrousel
         quantity={item.url.length}
         {...{ item, activeImage }}
       />

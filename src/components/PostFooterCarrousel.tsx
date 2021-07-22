@@ -4,12 +4,17 @@ import CommentIconStatic from "../../assets/Icons/CommentIconStatic";
 import LikeButtonAnimated from "../../assets/Icons/LikeButtonAnimated";
 import SavedButtonAnimated from "../../assets/Icons/SavedButtonAnimated";
 import ShareIconStatic from "../../assets/Icons/ShareIconStatic";
+import CarrouselIndicatorAnimated from "./CarrouselIndicatorAnimated";
 import LikesAndComments from "./LikesAndComments";
-import { PostFooterProps } from "../interfaces";
+import { PostFooterCarrouselProps } from "../interfaces";
 
 const { width } = Dimensions.get("window");
 
-const PostFooter = ({ item }: PostFooterProps) => {
+const PostFooterCarrousel = ({
+  item,
+  quantity,
+  activeImage,
+}: PostFooterCarrouselProps) => {
   return (
     <>
       <View style={styles.containerMain}>
@@ -18,6 +23,9 @@ const PostFooter = ({ item }: PostFooterProps) => {
           <CommentIconStatic />
           <ShareIconStatic />
         </View>
+        <CarrouselIndicatorAnimated
+          {...{ quantity, activeImage }}
+        />
         <View style={styles.flexDirection} />
         <SavedButtonAnimated />
       </View>
@@ -43,4 +51,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PostFooter;
+export default PostFooterCarrousel;
