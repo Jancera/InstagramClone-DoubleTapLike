@@ -6,7 +6,6 @@ import {
   FlatList,
   SafeAreaView,
   ActivityIndicator,
-  ListRenderItemInfo,
 } from "react-native";
 import Story from "../components/Story";
 import MessengerIconStatic from "../../assets/Icons/MessengerIconStatic";
@@ -15,22 +14,21 @@ import NewPostIcon from "../../assets/Icons/NewPostIcon";
 import LikeIconStatic from "../../assets/Icons/LikeIconStatic";
 import Post from "../components/Post";
 import PostCarrousel from "../components/PostCarrousel";
-import {
-  PostCarrouselProps,
-  PostProps,
-} from "../interfaces";
 
 import { dataAPI } from "../data";
+import { ItemModel, RenderItemProps } from "../interfaces";
 
 const Home = () => {
-  const [posts, setPosts] = useState(dataAPI.posts);
+  const [posts, setPosts] = useState<ItemModel[]>(
+    dataAPI.posts
+  );
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const _loadData = () => {
     setRefreshing(true);
     setTimeout(() => {
-      setPosts([...posts, ...dataAPI.posts]);
+      setPosts([...posts]);
       setRefreshing(false);
     }, 2000);
   };
@@ -54,11 +52,7 @@ const Home = () => {
     </>
   );
 
-  const _renderItem = ({
-    item,
-  }: ListRenderItemInfo<
-    PostCarrouselProps | PostProps
-  >) => {
+  const _renderItem = ({ item }: RenderItemProps) => {
     if (item.carrousel) {
       return <PostCarrousel {...{ item }} />;
     } else {

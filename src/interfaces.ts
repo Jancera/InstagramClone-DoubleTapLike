@@ -1,17 +1,33 @@
+import { ImageSourcePropType } from "react-native";
 import Animated from "react-native-reanimated";
 
-export interface PostCarrouselProps {
+export interface DataProps {
+  userLoggedInfo: {
+    name: string;
+    profile_image: ImageSourcePropType;
+  };
+  stories: StoryModel[];
+  posts: ItemModel[];
+}
+
+export interface RenderItemProps {
+  item: ItemModel;
+}
+
+export interface ItemModel {
   username: string;
   id: number;
-  url: ({ uri: string } | number)[];
-  user_profile_photo: string | number;
+  url: ImageSourcePropType | any;
+  user_profile_photo: ImageSourcePropType;
   carrousel: boolean;
-  location: string;
+  location: string | undefined;
   likes: number;
-  commonLike: {
-    name: string;
-    profilePhoto: { uri: string } | string | number;
-  };
+  commonLike:
+    | {
+        name: string;
+        profilePhoto: { uri: string } | string | number;
+      }
+    | undefined;
   description: string;
   comments: number;
   time: string;
@@ -21,7 +37,7 @@ export interface PostProps {
   username: string;
   id: number;
   url: { uri: string } | number;
-  user_profile_photo: string | number;
+  user_profile_photo: ImageSourcePropType;
   carrousel: boolean;
   location: string;
   likes: number;
@@ -35,40 +51,22 @@ export interface PostProps {
 }
 
 export interface PostFooterProps {
-  item: {
-    username: string;
-    id: number;
-    url:
-      | { uri: string }
-      | number
-      | ({ uri: string } | number)[];
-    /**
-      I am defining both url types ( { uri: string } | number and ({ uri: string } | number)[] ) 
-      because I am using the PostFooter component in both Post ans PostCarrousel and the types are
-      different
-      */
-    user_profile_photo: string | number;
-    carrousel: boolean;
-    location: string;
-    likes: number;
-    commonLike: {
-      name: string;
-      profilePhoto: { uri: string } | string | number;
-    };
-    description: string;
-    comments: number;
-    time: string;
-  };
+  item: any;
   quantity?: number;
   activeImage?: Animated.SharedValue<number>;
 }
 
 export interface StoryProps {
-  data: {
-    name: string;
-    id: number;
-    profile_image: string | number;
-  }[];
+  data: StoryModel[];
+}
+export interface RenderStoryProps {
+  item: StoryModel;
+}
+
+export interface StoryModel {
+  name: string;
+  id: number;
+  profile_image: ImageSourcePropType;
 }
 
 export interface FlatListCarrouselProps {

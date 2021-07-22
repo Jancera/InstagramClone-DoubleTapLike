@@ -3,7 +3,7 @@ import {
   FlatList,
   Dimensions,
   Image,
-  ListRenderItemInfo,
+  ImageSourcePropType,
 } from "react-native";
 import { FlatListCarrouselProps } from "../interfaces";
 
@@ -29,7 +29,9 @@ const FlatListCarrousel = ({
 
   const _renderItem = ({
     item,
-  }: ListRenderItemInfo<{ uri: string } | number>) => {
+  }: {
+    item: ImageSourcePropType | { uri: string };
+  }) => {
     return (
       <Image
         style={{

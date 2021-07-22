@@ -2,8 +2,9 @@ import React from "react";
 import { Image, Dimensions } from "react-native";
 import PostHeader from "./PostHeader";
 import PostFooter from "./PostFooter";
+import { RenderItemProps } from "../interfaces";
 
-const Post = ({ item }) => {
+const Post = ({ item }: RenderItemProps) => {
   const { width } = Dimensions.get("window");
   return (
     <>

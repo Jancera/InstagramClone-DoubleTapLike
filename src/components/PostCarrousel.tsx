@@ -3,8 +3,9 @@ import { useSharedValue } from "react-native-reanimated";
 import FlatListCarrousel from "./FlatListCarrousel";
 import PostHeader from "./PostHeader";
 import PostFooter from "./PostFooter";
+import { RenderItemProps } from "../interfaces";
 
-const PostCarrousel = ({ item }) => {
+const PostCarrousel = ({ item }: RenderItemProps) => {
   const activeImage = useSharedValue(0);
   return (
     <>

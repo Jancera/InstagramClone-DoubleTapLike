@@ -7,7 +7,10 @@ import {
   Text,
 } from "react-native";
 import StoryBorderGradient from "./StoryBorderGradient";
-import { StoryProps } from "../interfaces";
+import {
+  RenderStoryProps,
+  StoryProps,
+} from "../interfaces";
 
 const Story = ({ data }: StoryProps) => {
   const [stories, setStories] = useState(data);
@@ -19,7 +22,7 @@ const Story = ({ data }: StoryProps) => {
     );
   };
 
-  const _renderItem = ({ item }: any) => {
+  const _renderItem = ({ item }: RenderStoryProps) => {
     return (
       <View style={styles.align}>
         <View style={styles.iconStoryContainer}>
