@@ -3,16 +3,19 @@ import { StyleSheet } from "react-native";
 import Animated, {
   interpolate,
   useAnimatedStyle,
+  useDerivedValue,
+  withTiming,
 } from "react-native-reanimated";
 import { CircleProps } from "../interfaces";
 
-const Circle = ({
-  animation,
-  index,
-  activeImage,
-}: CircleProps) => {
+const Circle = ({ index, activeImage }: CircleProps) => {
   const grey = "rgb(168, 168, 168)";
   const blue = "rgb(0, 149, 246)";
+
+  const animation = useDerivedValue(() => {
+    return withTiming(activeImage.value);
+  });
+
   const style = useAnimatedStyle(() => {
     const inputRange = [
       index - 4,

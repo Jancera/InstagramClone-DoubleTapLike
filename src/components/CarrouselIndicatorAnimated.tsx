@@ -1,9 +1,5 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import {
-  withTiming,
-  useDerivedValue,
-} from "react-native-reanimated";
 import Circle from "./Circle";
 import { CarrouselIndicatorProps } from "../interfaces";
 
@@ -12,9 +8,6 @@ const CarrouselIndicatorAnimated = ({
   activeImage,
 }: CarrouselIndicatorProps) => {
   const indicators = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const animation = useDerivedValue(() => {
-    return withTiming(activeImage.value);
-  });
 
   return (
     <View style={styles.container}>
@@ -22,7 +15,7 @@ const CarrouselIndicatorAnimated = ({
         return (
           <Circle
             key={String(index)}
-            {...{ animation, index, activeImage }}
+            {...{ index, activeImage }}
           />
         );
       })}

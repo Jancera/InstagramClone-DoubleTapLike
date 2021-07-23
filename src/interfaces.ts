@@ -87,7 +87,6 @@ export interface CarrouselIndicatorProps {
 }
 
 export interface CircleProps {
-  animation: Animated.DerivedValue<number>;
   index: number;
   activeImage: Animated.SharedValue<number>;
 }
