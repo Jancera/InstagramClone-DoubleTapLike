@@ -6,10 +6,10 @@ import {
   Image,
 } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { RenderItemProps } from "../interfaces";
+import { PostHeaderProps } from "../interfaces";
 import StoryBorderGradient from "./StoryBorderGradient";
 
-const PostHeader = ({ item }: RenderItemProps) => {
+const PostHeader = ({ item }: PostHeaderProps) => {
   return (
     <View style={styles.containerHeader}>
       <View style={styles.imageNameContainer}>

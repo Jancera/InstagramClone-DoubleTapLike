@@ -32,6 +32,10 @@ export interface PostCarrouselProps {
   item: ItemModel;
 }
 
+export interface PostHeaderProps {
+  item: ItemModel;
+}
+
 export interface PostFooterProps {
   item: ItemModel;
 }
