@@ -1,35 +1,72 @@
-import React, { useRef } from "react";
-import {
-  useAnimatedGestureHandler,
+import React from "react";
+import Animated, {
   useAnimatedStyle,
   useSharedValue,
+  Easing,
+  withDelay,
 } from "react-native-reanimated";
 import FlatListCarrousel from "./FlatListCarrousel";
 import PostHeader from "./PostHeader";
 import { PostCarrouselProps } from "../interfaces";
 import PostFooterCarrousel from "./PostFooterCarrousel";
 import { TapGestureHandler } from "react-native-gesture-handler";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { withSpring } from "react-native-reanimated";
+import { withTiming } from "react-native-reanimated";
 
 const PostCarrousel = ({ item }: PostCarrouselProps) => {
   const activeImage = useSharedValue(0);
   const isLiked = useSharedValue(false);
+  const scale = useSharedValue(0);
+
+  const style = useAnimatedStyle(() => {
+    return {
+      transform: [{ scale: scale.value }],
+    };
+  });
+
+  const likeAnimation = () => {
+    isLiked.value = true;
+    scale.value = withTiming(
+      1,
+      {
+        duration: 200,
+        easing: Easing.bezier(0.68, 0, 0.32, 1.6),
+      },
+      (isFinished) => {
+        if (isFinished) {
+          scale.value = withDelay(
+            500,
+            withTiming(0, {
+              duration: 100,
+              easing: Easing.bezier(1, 0, 0, 1),
+            })
+          );
+        }
+      }
+    );
+  };
 
   return (
     <>
       <PostHeader {...{ item }} />
       <TapGestureHandler
         numberOfTaps={2}
-        onActivated={() => {
-          console.log("Disparado");
-        }}
+        onActivated={likeAnimation}
       >
-        <View>
+        <Animated.View style={styles.container}>
           <FlatListCarrousel
             data={item.url}
             {...{ activeImage, isLiked }}
           />
-        </View>
+
+          <Animated.View
+            style={[styles.doubleTapIcon, style]}
+          >
+            <Icon name="heart" size={100} color="white" />
+          </Animated.View>
+        </Animated.View>
       </TapGestureHandler>
 
       <PostFooterCarrousel
@@ -39,5 +76,15 @@ const PostCarrousel = ({ item }: PostCarrouselProps) => {
     </>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+  },
+  doubleTapIcon: {
+    position: "absolute",
+    alignSelf: "center",
+  },
+});
 
 export default PostCarrousel;

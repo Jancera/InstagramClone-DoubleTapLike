@@ -20,7 +20,7 @@ const PostFooterCarrousel = ({
     <>
       <View style={styles.containerMain}>
         <View style={styles.containerLike}>
-          <LikeButtonAnimated />
+          <LikeButtonAnimated focused={isLiked.value} />
           <CommentIconStatic />
           <ShareIconStatic />
         </View>
