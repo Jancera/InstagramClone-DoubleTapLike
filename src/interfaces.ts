@@ -38,12 +38,14 @@ export interface PostHeaderProps {
 
 export interface PostFooterProps {
   item: ItemModel;
+  isLiked: Animated.SharedValue<boolean>;
 }
 
 export interface PostFooterCarrouselProps {
   item: ItemModel;
   quantity: number;
   activeImage: Animated.SharedValue<number>;
+  isLiked: Animated.SharedValue<boolean>;
 }
 
 export interface FlatListCarrouselProps {

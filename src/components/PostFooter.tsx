@@ -9,7 +9,7 @@ import { PostFooterProps } from "../interfaces";
 
 const { width } = Dimensions.get("window");
 
-const PostFooter = ({ item }: PostFooterProps) => {
+const PostFooter = ({ item, isLiked }: PostFooterProps) => {
   return (
     <>
       <View style={styles.containerMain}>

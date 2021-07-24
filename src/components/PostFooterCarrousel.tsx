@@ -14,6 +14,7 @@ const PostFooterCarrousel = ({
   item,
   quantity,
   activeImage,
+  isLiked,
 }: PostFooterCarrouselProps) => {
   return (
     <>
