@@ -1,10 +1,13 @@
+import Animated from "react-native-reanimated";
 import {
   Easing,
   useAnimatedStyle,
   withTiming,
 } from "react-native-reanimated";
 
-const iconAnimation = (isLiked) => {
+const iconAnimation = (
+  isLiked: Animated.SharedValue<boolean>
+) => {
   const iconFilled = useAnimatedStyle(() => {
     return {
       transform: [

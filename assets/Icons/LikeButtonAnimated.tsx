@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Animated from "react-native-reanimated";
 import iconAnimation from "../../src/components/iconAnimation";
 
-const LikeButtonAnimated = ({ isLiked }) => {
+const LikeButtonAnimated = ({
+  isLiked,
+}: {
+  isLiked: Animated.SharedValue<boolean>;
+}) => {
   const { iconFilled, iconRegular } =
     iconAnimation(isLiked);
 

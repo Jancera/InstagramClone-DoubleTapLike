@@ -8,18 +8,17 @@ import {
   ActivityIndicator,
 } from "react-native";
 import Story from "../components/Story";
+import Post from "../components/Post";
+import PostCarrousel from "../components/PostCarrousel";
 import MessengerIconStatic from "../../assets/Icons/MessengerIconStatic";
 import InstagramIcon from "../../assets/Icons/InstagramIcon";
 import NewPostIcon from "../../assets/Icons/NewPostIcon";
 import LikeIconStatic from "../../assets/Icons/LikeIconStatic";
-import Post from "../components/Post";
-import PostCarrousel from "../components/PostCarrousel";
-
-import { dataAPI } from "../data";
 import {
   ItemModel,
   ItemToRenderProps,
 } from "../interfaces";
+import { dataAPI } from "../data";
 
 const Home = () => {
   const [posts, setPosts] = useState<ItemModel[]>(
@@ -59,8 +58,7 @@ const Home = () => {
     if (item.carrousel) {
       return <PostCarrousel {...{ item }} />;
     } else {
-      return null;
-      // <Post {...{ item }} />;
+      return <Post {...{ item }} />;
     }
   };
   return (

@@ -1,10 +1,10 @@
 import React from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
+import LikesAndComments from "./LikesAndComments";
 import CommentIconStatic from "../../assets/Icons/CommentIconStatic";
 import LikeButtonAnimated from "../../assets/Icons/LikeButtonAnimated";
 import SavedButtonAnimated from "../../assets/Icons/SavedButtonAnimated";
 import ShareIconStatic from "../../assets/Icons/ShareIconStatic";
-import LikesAndComments from "./LikesAndComments";
 import { PostFooterProps } from "../interfaces";
 
 const { width } = Dimensions.get("window");
@@ -14,7 +14,7 @@ const PostFooter = ({ item, isLiked }: PostFooterProps) => {
     <>
       <View style={styles.containerMain}>
         <View style={styles.containerLike}>
-          <LikeButtonAnimated />
+          <LikeButtonAnimated {...{ isLiked }} />
           <CommentIconStatic />
           <ShareIconStatic />
         </View>

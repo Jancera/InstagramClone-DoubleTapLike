@@ -1,11 +1,11 @@
 import React from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
+import CarrouselIndicatorAnimated from "./CarrouselIndicatorAnimated";
+import LikesAndComments from "./LikesAndComments";
 import CommentIconStatic from "../../assets/Icons/CommentIconStatic";
 import LikeButtonAnimated from "../../assets/Icons/LikeButtonAnimated";
 import SavedButtonAnimated from "../../assets/Icons/SavedButtonAnimated";
 import ShareIconStatic from "../../assets/Icons/ShareIconStatic";
-import CarrouselIndicatorAnimated from "./CarrouselIndicatorAnimated";
-import LikesAndComments from "./LikesAndComments";
 import { PostFooterCarrouselProps } from "../interfaces";
 
 const { width } = Dimensions.get("window");
@@ -28,7 +28,7 @@ const PostFooterCarrousel = ({
           {...{ quantity, activeImage }}
         />
         <View style={styles.flexDirection} />
-        {/* <SavedButtonAnimated /> */}
+        <SavedButtonAnimated />
       </View>
       <LikesAndComments {...{ item }} />
     </>

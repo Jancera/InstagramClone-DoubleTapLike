@@ -4,19 +4,22 @@ import {
   Dimensions,
   StyleSheet,
 } from "react-native";
-import PostHeader from "./PostHeader";
-import PostFooter from "./PostFooter";
-import { PostProps } from "../interfaces";
 import Animated, {
+  Easing,
   useAnimatedStyle,
   useSharedValue,
+  withDelay,
+  withTiming,
 } from "react-native-reanimated";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import PostHeader from "./PostHeader";
+import PostFooter from "./PostFooter";
 import { TapGestureHandler } from "react-native-gesture-handler";
+import { PostProps } from "../interfaces";
 
 const Post = ({ item }: PostProps) => {
   const isLiked = useSharedValue(false);
-  const scale = useSharedValue(2);
+  const scale = useSharedValue(0);
   const { width } = Dimensions.get("window");
 
   const style = useAnimatedStyle(() => {
@@ -25,14 +28,34 @@ const Post = ({ item }: PostProps) => {
     };
   });
 
+  const likeAnimation = () => {
+    isLiked.value = true; //Will make the like button animate to the liked state
+    scale.value = withTiming(
+      1,
+      {
+        duration: 200,
+        easing: Easing.bezier(0.68, 0, 0.32, 1.6),
+      },
+      (isFinished) => {
+        if (isFinished) {
+          scale.value = withDelay(
+            500,
+            withTiming(0, {
+              duration: 100,
+              easing: Easing.bezier(1, 0, 0, 1),
+            })
+          );
+        }
+      }
+    );
+  };
+
   return (
     <>
       <PostHeader {...{ item }} />
       <TapGestureHandler
         numberOfTaps={2}
-        onActivated={() => {
-          console.log("Disparado");
-        }}
+        onActivated={likeAnimation}
       >
         <Animated.View style={styles.container}>
           <Image
@@ -46,7 +69,12 @@ const Post = ({ item }: PostProps) => {
           <Animated.View
             style={[styles.doubleTapIcon, style]}
           >
-            <Icon name="heart" size={100} color="white" />
+            <Icon
+              name="heart"
+              size={100}
+              color="white"
+              style={styles.shadow}
+            />
           </Animated.View>
         </Animated.View>
       </TapGestureHandler>
@@ -60,6 +88,11 @@ const styles = StyleSheet.create({
   doubleTapIcon: {
     position: "absolute",
     alignSelf: "center",
+  },
+  shadow: {
+    shadowOffset: { width: 0, height: 20 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
   },
 });
 
