@@ -20,7 +20,7 @@ const PostFooterCarrousel = ({
     <>
       <View style={styles.containerMain}>
         <View style={styles.containerLike}>
-          <LikeButtonAnimated focused={isLiked.value} />
+          <LikeButtonAnimated {...{ isLiked }} />
           <CommentIconStatic />
           <ShareIconStatic />
         </View>
@@ -28,7 +28,7 @@ const PostFooterCarrousel = ({
           {...{ quantity, activeImage }}
         />
         <View style={styles.flexDirection} />
-        <SavedButtonAnimated />
+        {/* <SavedButtonAnimated /> */}
       </View>
       <LikesAndComments {...{ item }} />
     </>

@@ -59,7 +59,8 @@ const Home = () => {
     if (item.carrousel) {
       return <PostCarrousel {...{ item }} />;
     } else {
-      return <Post {...{ item }} />;
+      return null;
+      // <Post {...{ item }} />;
     }
   };
   return (

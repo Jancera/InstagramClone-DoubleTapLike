@@ -4,34 +4,23 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import Animated from "react-native-reanimated";
 import iconAnimation from "../../src/components/iconAnimation";
 
-const LikeButtonAnimated = ({
-  focused,
-}: {
-  focused: boolean;
-}) => {
-  const [trigger, setTrigger] = useState(false);
-
-  useEffect(() => {
-    console.log("focado");
-    setTrigger(true);
-  }, [focused]);
-
-  const { IconFilled, IconRegular } =
-    iconAnimation(trigger);
+const LikeButtonAnimated = ({ isLiked }) => {
+  const { iconFilled, iconRegular } =
+    iconAnimation(isLiked);
 
   return (
     <TouchableOpacity
       activeOpacity={1}
-      onPress={() => setTrigger(!trigger)}
+      onPress={() => (isLiked.value = !isLiked.value)}
     >
-      <Animated.View style={IconRegular}>
+      <Animated.View style={iconRegular}>
         <Icon
           name="heart-outline"
           size={30}
           color="white"
         />
       </Animated.View>
-      <Animated.View style={[IconFilled, styles.absolute]}>
+      <Animated.View style={[iconFilled, styles.absolute]}>
         <Icon
           name="heart"
           size={30}

@@ -4,41 +4,41 @@ import {
   withTiming,
 } from "react-native-reanimated";
 
-const iconAnimation = (trigger: boolean) => {
-  const IconFilled = useAnimatedStyle(() => {
+const iconAnimation = (isLiked) => {
+  const iconFilled = useAnimatedStyle(() => {
     return {
       transform: [
         {
-          scale: withTiming(trigger ? 1 : 0, {
+          scale: withTiming(isLiked.value ? 1 : 0, {
             duration: 200,
             easing: Easing.bezier(0.68, -0.6, 0.32, 1.6),
           }),
         },
       ],
-      opacity: withTiming(trigger ? 1 : 0, {
+      opacity: withTiming(isLiked.value ? 1 : 0, {
         duration: 200,
         easing: Easing.bezier(0.68, -0.6, 0.32, 1.6),
       }),
     };
   });
 
-  const IconRegular = useAnimatedStyle(() => {
+  const iconRegular = useAnimatedStyle(() => {
     return {
       transform: [
         {
-          scale: withTiming(trigger ? 0 : 1, {
+          scale: withTiming(isLiked.value ? 0 : 1, {
             duration: 200,
             easing: Easing.bezier(0.68, -0.6, 0.32, 1.6),
           }),
         },
       ],
-      opacity: withTiming(trigger ? 0 : 1, {
+      opacity: withTiming(isLiked.value ? 0 : 1, {
         duration: 200,
         easing: Easing.bezier(0.68, -0.6, 0.32, 1.6),
       }),
     };
   });
-  return { IconFilled, IconRegular };
+  return { iconFilled, iconRegular };
 };
 
 export default iconAnimation;

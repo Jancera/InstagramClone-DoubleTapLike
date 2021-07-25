@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -17,8 +17,9 @@ import { withTiming } from "react-native-reanimated";
 
 const PostCarrousel = ({ item }: PostCarrouselProps) => {
   const activeImage = useSharedValue(0);
-  const isLiked = useSharedValue(false);
+
   const scale = useSharedValue(0);
+  const isLiked = useSharedValue(false);
 
   const style = useAnimatedStyle(() => {
     return {
@@ -58,7 +59,7 @@ const PostCarrousel = ({ item }: PostCarrouselProps) => {
         <Animated.View style={styles.container}>
           <FlatListCarrousel
             data={item.url}
-            {...{ activeImage, isLiked }}
+            {...{ activeImage }}
           />
 
           <Animated.View

@@ -6,17 +6,17 @@ import iconAnimation from "../../src/components/iconAnimation";
 
 const SavedButton = () => {
   const [trigger, setTrigger] = useState(false);
-  const { IconFilled, IconRegular } =
+  const { iconFilled, iconRegular } =
     iconAnimation(trigger);
   return (
     <TouchableOpacity
       activeOpacity={1}
       onPress={() => setTrigger(!trigger)}
     >
-      <Animated.View style={IconRegular}>
+      <Animated.View style={iconRegular}>
         <Icon name="bookmark-o" size={30} color="white" />
       </Animated.View>
-      <Animated.View style={[IconFilled, styles.absolute]}>
+      <Animated.View style={[iconFilled, styles.absolute]}>
         <Icon name="bookmark" size={30} color="white" />
       </Animated.View>
     </TouchableOpacity>
