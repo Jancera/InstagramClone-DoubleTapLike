@@ -1,4 +1,5 @@
 import React from "react";
+import { StyleSheet, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
@@ -11,13 +12,13 @@ import PostHeader from "./PostHeader";
 import { PostCarrouselProps } from "../interfaces";
 import PostFooterCarrousel from "./PostFooterCarrousel";
 import { TapGestureHandler } from "react-native-gesture-handler";
-import { StyleSheet } from "react-native";
+
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 const PostCarrousel = ({ item }: PostCarrouselProps) => {
   const activeImage = useSharedValue(0);
-  const scale = useSharedValue(0);
   const isLiked = useSharedValue(false);
+  const scale = useSharedValue(0);
 
   const style = useAnimatedStyle(() => {
     return {
@@ -54,7 +55,7 @@ const PostCarrousel = ({ item }: PostCarrouselProps) => {
         numberOfTaps={2}
         onActivated={likeAnimation}
       >
-        <Animated.View style={styles.container}>
+        <View style={styles.container}>
           <FlatListCarrousel
             data={item.url}
             {...{ activeImage }}
@@ -64,7 +65,7 @@ const PostCarrousel = ({ item }: PostCarrouselProps) => {
           >
             <Icon name="heart" size={100} color="white" />
           </Animated.View>
-        </Animated.View>
+        </View>
       </TapGestureHandler>
       <PostFooterCarrousel
         quantity={item.url.length}

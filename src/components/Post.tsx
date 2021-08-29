@@ -3,6 +3,7 @@ import {
   Image,
   Dimensions,
   StyleSheet,
+  View,
 } from "react-native";
 import Animated, {
   Easing,
@@ -57,7 +58,7 @@ const Post = ({ item }: PostProps) => {
         numberOfTaps={2}
         onActivated={likeAnimation}
       >
-        <Animated.View style={styles.container}>
+        <View style={styles.container}>
           <Image
             style={{
               width,
@@ -76,7 +77,7 @@ const Post = ({ item }: PostProps) => {
               style={styles.shadow}
             />
           </Animated.View>
-        </Animated.View>
+        </View>
       </TapGestureHandler>
       <PostFooter {...{ item, isLiked }} />
     </>
